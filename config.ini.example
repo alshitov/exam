@@ -1,0 +1,14 @@
+[capture]
+monitor = 1
+x0 = 0
+y0 = 0
+w = 1200
+h = 900
+
+[runtime]
+session_name = demo-session-001
+interval_seconds = 5
+poll_seconds = 2
+
+[paths]
+screenshots_root = screenshots

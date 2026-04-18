@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+screenshots/
+answers/
+.env
+config.ini
