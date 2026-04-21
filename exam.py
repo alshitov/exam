@@ -215,6 +215,7 @@ def call_screenshot_worker(config: AppConfig, screenshot_path: Path, env_vars: d
     )
     env = os.environ.copy()
     env.update(env_vars)
+    logger.info("Calling screenshot worker for screenshot: %s", screenshot_path.name)
     result = subprocess.run(
         ["cursor", "agent", "--trust", prompt],
         check=False,
@@ -227,6 +228,9 @@ def call_screenshot_worker(config: AppConfig, screenshot_path: Path, env_vars: d
             f"cursor agent failed (exit={result.returncode}) stderr={result.stderr.strip()}"
         )
     logger.info("Worker completed for screenshot: %s", screenshot_path.name)
+    logger.info("Waiting for 5 seconds for user to answer the question")
+    time.sleep(5)
+    logger.info("5 seconds passed, continuing with the next screenshot")
 
 
 def cmd_start(config: AppConfig) -> int:
